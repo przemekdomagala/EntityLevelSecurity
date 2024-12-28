@@ -18,7 +18,13 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework:spring-context:6.1.14'
+    implementation 'org.aspectj:aspectjrt:1.9.20'
+    implementation 'org.springframework:spring-aop:5.3.29'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
