@@ -32,5 +32,10 @@ public class Role {
     public String getName() {
         return name;
     }
+
+    public Map<String, Permission> getPermissions() {
+        return permissions;
+    }
+
     //    public static class RoleBuilder {}
 }

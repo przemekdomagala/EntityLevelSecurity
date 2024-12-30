@@ -21,5 +21,12 @@ public class User {
         this.role = role;
         return this;
     }
+
+    public Role getRole() {
+        return role;
+    }
+    public String getName() {
+        return name;
+    }
     //    public static class UserBuilder {}
 }
