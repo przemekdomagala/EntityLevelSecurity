@@ -62,7 +62,7 @@ public class DemoApplication {
         System.out.println(engineers_lay_offs.equals(barbara));
 
 
-        Role engineerRole = roleBuilder.createRole().withName("Engineer").withPermission(Permission.READ, "projects");
+        Role engineerRole = roleBuilder.createRole().withName("Engineer").withPermission(Permission.MODIFY, "users");
         User engineer = userBuilder.createUser().withRole(engineerRole).withName("John");
 
         proxyDatabase = new ProxyDatabase(database, engineer);
@@ -72,10 +72,12 @@ public class DemoApplication {
 
         System.out.println("Testing select operation...");
         Map<String, Object> whereConditions = Map.of("name", "Jane Smith");
-        List<Map<String, Object>> results = database.select("users", whereConditions);
+        List<Map<String, Object>> results = proxyDatabase.select("users", whereConditions);
 
         System.out.println("Query results: " + results);
 
-    }
+        proxyDatabase.insert("users", Map.of("name", "KAJEK", "email", "kajesob@o2.pl"));
 
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
+    }
 }
