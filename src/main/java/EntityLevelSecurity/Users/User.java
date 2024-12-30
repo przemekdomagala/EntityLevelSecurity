@@ -28,11 +28,12 @@ public class User {
         return this;
     }
 
-    public String getName(){
-        return this.name;
+    public Role getRole() {
+        return role;
     }
-    public Role getRole(){
-        return this.role;
+    public String getName() {
+        return name;
     }
+
     //    public static class UserBuilder {}
 }
