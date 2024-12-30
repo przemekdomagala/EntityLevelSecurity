@@ -30,10 +30,9 @@ public class ProxyDatabase implements DatabaseOperations {
 
     private boolean hasPermission(String tableName, Permission requiredPermission) {
         return currentUser.getRole().getPermissions()
-                .getOrDefault(tableName, Permission.READ)
+                .getOrDefault(tableName, Permission.NO_PERMISSION)
                 .ordinal() >= requiredPermission.ordinal();
     }
-
 
     @Override
     public List<Map<String, Object>> select(String tableName, Map<String, Object> whereConditions) {
