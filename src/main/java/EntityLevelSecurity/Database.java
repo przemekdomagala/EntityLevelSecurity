@@ -76,32 +76,24 @@ public class Database implements DatabaseOperations{
             whereConditions.forEach(query::setParameter);
 
             // Wykonanie zapytania i pobranie wyników
-            var results = query.getResultList();
-
-            List<String> columnNames = query.unwrap(org.hibernate.query.NativeQuery.class)
-                    .getReturnAliases();
+            @SuppressWarnings("unchecked")
+            List<Object[]> results = (List<Object[]>) query.getResultList();
 
             // Mapowanie wyników na listę map
             return results.stream()
                     .map(row -> {
-                        var rowMap = new HashMap<String, Object>();
-
-                        // Jeśli wynik to Object[], obsługuj jako wiele kolumn
-                        if (row instanceof Object[]) {
-                            Object[] rowArray = (Object[]) row;
-                            for (int i = 0; i < columnNames.size(); i++) {
-                                rowMap.put(columnNames.get(i), rowArray[i]);
-                            }
-                        } else { // Jeśli wynik to pojedyncze dane (jedna kolumna)
-                            rowMap.put(columnNames.get(0), row);
+                        var result = new HashMap<String, Object>();
+                        for (int i = 0; i < row.length; i++) {
+                            result.put("column" + i, row[i]);
                         }
-                        return rowMap;
+                        return result;
                     })
                     .collect(Collectors.toList());
         } finally {
             session.close();
         }
     }
+
     @Override
     public void insert(String tableName, Map<String, Object> data) {
         var session = sessionFactory.openSession();

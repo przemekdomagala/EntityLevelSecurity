@@ -81,7 +81,7 @@ public class DemoApplication {
 
         System.out.println("Testing select operation...");
         Map<String, Object> whereConditions = Map.of("name", "John Doe");
-        List<Map<String, Object>> results = database.select("users",List.of("name"),whereConditions);
+        List<Map<String, Object>> results = database.select("users", whereConditions);
 
         System.out.println("Query results: " + results);
 
