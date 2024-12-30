@@ -28,33 +28,12 @@ public class ProxyDatabase implements DatabaseOperations {
         return database.getTableNames();
     }
 
-    @Override
-    public void performOperation(String tableName, String operationType) {
-        Permission requiredPermission = getRequiredPermission(operationType);
-
-        // Check user permissions for the table
-        if (!hasPermission(tableName, requiredPermission)) {
-            throw new SecurityException("User does not have sufficient permission to perform this operation");
-        }
-
-        // Forward the request to the actual database
-        database.performOperation(tableName, operationType);
-    }
-
     private boolean hasPermission(String tableName, Permission requiredPermission) {
         return currentUser.getRole().getPermissions()
                 .getOrDefault(tableName, Permission.READ)
                 .ordinal() >= requiredPermission.ordinal();
     }
 
-    private Permission getRequiredPermission(String operationType) {
-        return switch (operationType) {
-            case "READ" -> Permission.READ;
-            case "WRITE" -> Permission.READ_WRITE;
-            case "MODIFY" -> Permission.MODIFY;
-            default -> throw new IllegalArgumentException("Invalid operation type: " + operationType);
-        };
-    }
 
     @Override
     public List<Map<String, Object>> select(String tableName, Map<String, Object> whereConditions) {

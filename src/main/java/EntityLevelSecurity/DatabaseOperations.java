@@ -8,8 +8,6 @@ public interface DatabaseOperations {
 
     List<String> getTableNames();
 
-    void performOperation(String tableName, String operationType); // Example operation
-
     List<Map<String, Object>> select(String tableName, Map<String, Object> whereConditions);
 
     void insert(String tableName, Map<String, Object> data);
