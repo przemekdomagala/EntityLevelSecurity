@@ -34,7 +34,6 @@ public class DemoApplication {
     public void connectToDatabase() {
         database.connect("jdbc:postgresql://localhost:5432/sampledb");
 
-        // Fetch tables to verify connection
         database.getTableNames().forEach(System.out::println);
 
         System.out.println("Connected to database successfully!");
@@ -66,21 +65,13 @@ public class DemoApplication {
         Role engineerRole = roleBuilder.createRole().withName("Engineer").withPermission(Permission.READ, "projects");
         User engineer = userBuilder.createUser().withRole(engineerRole).withName("John");
 
-        // Set up ProxyDatabase
         proxyDatabase = new ProxyDatabase(database, engineer);
 
-        // Make database calls via the proxy
         proxyDatabase.connect("jdbc:postgresql://localhost:5432/sampledb");
 
-//        try {
-//            proxyDatabase.performOperation("projects", "READ");
-//            proxyDatabase.performOperation("projects", "MODIFY");
-//        } catch (SecurityException e) {
-//            System.err.println("Permission denied: " + e.getMessage());
-//        }
 
         System.out.println("Testing select operation...");
-        Map<String, Object> whereConditions = Map.of("name", "John Doe");
+        Map<String, Object> whereConditions = Map.of("name", "Jane Smith");
         List<Map<String, Object>> results = database.select("users", whereConditions);
 
         System.out.println("Query results: " + results);

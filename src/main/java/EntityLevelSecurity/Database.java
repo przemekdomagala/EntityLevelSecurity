@@ -48,12 +48,6 @@ public class Database implements DatabaseOperations{
     }
 
     @Override
-    public void performOperation(String tableName, String operationType) {
-        // Simulate performing an operation on the database
-        System.out.println("Executing " + operationType + " on " + tableName);
-    }
-
-    @Override
     public List<Map<String, Object>> select(String tableName, Map<String, Object> whereConditions) {
         var session = sessionFactory.openSession();
         try {
