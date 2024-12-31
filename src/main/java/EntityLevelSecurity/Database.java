@@ -93,12 +93,26 @@ public class Database implements DatabaseOperations{
         var session = sessionFactory.openSession();
         session.beginTransaction();
         try {
-            var entity = instantiateEntity(tableName, data);
-            session.persist(entity);
+            // Budowanie zapytania SQL
+            String columns = String.join(", ", data.keySet());
+            String values = data.keySet().stream()
+                    .map(key -> ":" + key) // Wartości będą wstawiane jako parametry
+                    .collect(Collectors.joining(", "));
+
+            String sql = String.format("INSERT INTO %s (%s) VALUES (%s)", tableName, columns, values);
+
+            var query = session.createNativeQuery(sql);
+
+            // Przypisywanie parametrów do zapytania
+            data.forEach(query::setParameter);
+
+            // Wykonanie zapytania
+            query.executeUpdate();
+
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
-            throw new RuntimeException("Failed to insert entity: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to insert data into table " + tableName + ": " + e.getMessage(), e);
         } finally {
             session.close();
         }
@@ -109,36 +123,33 @@ public class Database implements DatabaseOperations{
         var session = sessionFactory.openSession();
         session.beginTransaction();
         try {
-            var criteriaBuilder = session.getCriteriaBuilder();
-            var entityType = getEntityType(tableName);
-            var query = criteriaBuilder.createQuery(entityType.getJavaType());
-            var root = query.from(entityType.getJavaType());
+            // Budowanie zapytania SQL UPDATE
+            String setClause = data.keySet().stream()
+                    .map(key -> key + " = :" + key) // Tworzenie wyrażeń SET np. "column = :column"
+                    .collect(Collectors.joining(", "));
 
-            // Build where conditions dynamically
-            var predicates = whereConditions.entrySet().stream()
-                    .map(entry -> criteriaBuilder.equal(root.get(entry.getKey()), entry.getValue()))
-                    .toArray(jakarta.persistence.criteria.Predicate[]::new);
-            query.where(predicates);
+            String whereClause = whereConditions.keySet().stream()
+                    .map(key -> key + " = :" + key) // Tworzenie warunków WHERE np. "column = :column"
+                    .collect(Collectors.joining(" AND "));
 
-            // Fetch the entity to update
-            var entity = session.createQuery(query).getSingleResult();
+            String sql = String.format("UPDATE %s SET %s WHERE %s", tableName, setClause, whereClause);
 
-            // Apply updates
-            data.forEach((fieldName, fieldValue) -> {
-                try {
-                    var field = entity.getClass().getDeclaredField(fieldName);
-                    field.setAccessible(true);
-                    field.set(entity, fieldValue);
-                } catch (Exception e) {
-                    throw new RuntimeException("Failed to update field: " + fieldName, e);
-                }
-            });
+            var query = session.createNativeQuery(sql);
 
-            session.merge(entity);
+            // Ustawianie parametrów dla klauzuli SET
+            data.forEach(query::setParameter);
+
+            // Ustawianie parametrów dla klauzuli WHERE
+            whereConditions.forEach(query::setParameter);
+
+            // Wykonanie zapytania
+            int rowsAffected = query.executeUpdate();
+            System.out.println("Rows updated: " + rowsAffected);
+
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
-            throw new RuntimeException("Failed to update entity: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to update table " + tableName + ": " + e.getMessage(), e);
         } finally {
             session.close();
         }
