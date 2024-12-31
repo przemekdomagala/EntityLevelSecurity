@@ -76,8 +76,13 @@ public class DemoApplication {
 
         System.out.println("Query results: " + results);
 
-        proxyDatabase.insert("users", Map.of("name", "KAJEK", "email", "kajesob@o2.pl"));
+//        proxyDatabase.insert("users", Map.of("name", "KAJEK", "email", "kajesob@o2.pl"));
 
         System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
+
+        proxyDatabase.update("users", Map.of("name", "Kajek", "email", "EMAIL"), Map.of("name", "KAJEK"));
+
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
+
     }
 }
