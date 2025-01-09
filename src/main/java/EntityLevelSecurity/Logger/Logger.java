@@ -1,45 +1,45 @@
 package EntityLevelSecurity.Logger;
 
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.io.PrintWriter;
 
-@Aspect
-@Component
+/**
+ * Logger z chata, ktory PODOBNO zapisuje do pliku i nawet z timestampem
+ * Logowanie stringa chyba finalnie moze byc, nie jest duzo krocej
+ * jak sobie porobisz metody na wszystko
+ * Case do dodania: Exceptions i Nieprawidlowa proba dostepu
+ **/
+
 public class Logger {
+    private static final Logger instance = new Logger();
+    private PrintWriter writer;
 
-    @Pointcut("execution(public * EntityLevelSecurity.Roles.*.*(..))")
-    public void allRoleMethods() {
-        // Pointcut to match all public methods in Role class
+    private Logger() {
+        try {
+            // Open a file in append mode
+            writer = new PrintWriter(new FileWriter("application.log", true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Pointcut("execution(public * EntityLevelSecurity.Users.*.*(..))")
-    public void allUserMethods() {}
-
-    @Before("allRoleMethods()")
-    public void logAllRoleMethods(JoinPoint joinPoint) {
-        System.out.println(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+    public static Logger getInstance() {
+        return instance;
     }
 
-    @After("allRoleMethods()")
-    public void logAfter(JoinPoint joinPoint) {
-        System.out.println("After method: " + joinPoint.getSignature().getName());
+    public void log(String message) {
+        String timestampedMessage = "[" + LocalDateTime.now() + "] " + message;
+        writer.println(timestampedMessage);
+        writer.flush();
     }
 
-    @Before("allUserMethods()")
-    public void logBeforeUser(JoinPoint joinPoint) {
-        System.out.println("Before User method: " + joinPoint.getSignature().getName());
-    }
 
-    @After("allUserMethods()")
-    public void logAfterUser(JoinPoint joinPoint) {
-        System.out.println("After User method: " + joinPoint.getSignature().getName());
+    public void close() {
+        if (writer != null) {
+            writer.close();
+        }
     }
 }
+

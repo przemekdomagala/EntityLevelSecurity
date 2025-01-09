@@ -33,9 +33,9 @@ public class DemoApplication {
         User barbara = userBuilder.createUser().withRole(rola).withName("barbara");
         User engineers_lay_offs = userBuilder.createUser().withRole(rola).withName("engineers_lay_offs");
 
-        System.out.println(rola.getName());
-        System.out.println(rola2.getName());
-        System.out.println(engineers_lay_offs.equals(barbara));
+//        System.out.println(rola.getName());
+//        System.out.println(rola2.getName());
+//        System.out.println(engineers_lay_offs.equals(barbara));
     }
 
 }

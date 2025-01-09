@@ -1,9 +1,7 @@
 package EntityLevelSecurity.Roles;
-import EntityLevelSecurity.Logger.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import EntityLevelSecurity.Logger.MyLogger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,16 +14,21 @@ public class Role {
 
     Map<String, Permission> permissions = new HashMap<String, Permission>();
 
-    public static Role CreateNew(){
-        return new Role();
-    }
+    //Is it needed?
+//    public static Role CreateNew(){
+//        return new Role();
+//    }
 
     public Role withPermission(Permission permission, String table){
         permissions.put(table, permission);
+        MyLogger logger = MyLogger.getInstance();
+        logger.log("Role with " + permission.name() + " permission " + table);
         return this;
     }
     public Role withName(String name){
         this.name = name;
+        MyLogger logger = MyLogger.getInstance();
+        logger.log("Role with " + name);
         return this;
     }
 
