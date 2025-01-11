@@ -5,15 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
-/**
- * W Role i RoleBuilder podejście z getInstance i Dodaniem Loga w konkretnych funkcjach(1)
- * Dla user podejscie z zrobieniem funkcji Dla loggera, ktore są w klasie User tylko uzywane(2)
- * Trzeba obrac jedno podejscie i dociągnąć z nim resztę (w tym poczekac na całość libki i dodać
- * Prawdopodobnie w finalnej bibliotece wolimy podejscie z klasy Logger(3) (druga klasa w tym packagu)
- * Gdzie logi zapisują się z timestampem do pliku. Nie chcemy zeby uzytkownik biblioteki czytal nasze
- * logi w swoim terminalu.
- * **/
-
 public class Logger {
     private PrintWriter writer;
     private static Logger instance;
