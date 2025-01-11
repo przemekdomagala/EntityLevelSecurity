@@ -69,7 +69,6 @@ public class DemoApplication {
 
         proxyDatabase.connect("jdbc:postgresql://localhost:5432/sampledb");
 
-
         System.out.println("Testing select operation...");
         Map<String, Object> whereConditions = Map.of("name", "Jane Smith");
         List<Map<String, Object>> results = proxyDatabase.select("users", whereConditions);
@@ -83,6 +82,12 @@ public class DemoApplication {
         proxyDatabase.update("users", Map.of("name", "Kajek", "email", "EMAIL"), Map.of("name", "KAJEK"));
 
         System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
+
+
+        proxyDatabase.delete("users", Map.of("name", "KAJEK"));
+
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
+
 
     }
 }

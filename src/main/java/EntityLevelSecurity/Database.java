@@ -160,29 +160,31 @@ public class Database implements DatabaseOperations{
         var session = sessionFactory.openSession();
         session.beginTransaction();
         try {
-            var criteriaBuilder = session.getCriteriaBuilder();
-            var entityType = getEntityType(tableName);
-            var query = criteriaBuilder.createQuery(entityType.getJavaType());
-            var root = query.from(entityType.getJavaType());
+            // Building SQL DELETE query
+            String whereClause = whereConditions.keySet().stream()
+                    .map(key -> key + " = :" + key) // Tworzenie warunków WHERE np. "column = :column"
+                    .collect(Collectors.joining(" AND "));
 
-            // Build where conditions dynamically
-            var predicates = whereConditions.entrySet().stream()
-                    .map(entry -> criteriaBuilder.equal(root.get(entry.getKey()), entry.getValue()))
-                    .toArray(jakarta.persistence.criteria.Predicate[]::new);
-            query.where(predicates);
+            String sql = String.format("DELETE FROM %s WHERE %s", tableName, whereClause);
 
-            // Fetch the entity to delete
-            var entity = session.createQuery(query).getSingleResult();
+            var query = session.createNativeQuery(sql);
 
-            session.remove(entity);
+            // Setting parameters for WHERE clause
+            whereConditions.forEach(query::setParameter);
+
+            // Executing the query
+            int rowsAffected = query.executeUpdate();
+            System.out.println("Rows deleted: " + rowsAffected);
+
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
-            throw new RuntimeException("Failed to delete entity: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to delete from table " + tableName + ": " + e.getMessage(), e);
         } finally {
             session.close();
         }
     }
+
 
     // Helper methods
     private EntityType<?> getEntityType(String tableName) {
