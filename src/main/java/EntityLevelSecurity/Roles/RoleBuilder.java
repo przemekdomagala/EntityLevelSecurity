@@ -1,10 +1,9 @@
 package EntityLevelSecurity.Roles;
 
-import EntityLevelSecurity.Logger.MyLogger;
+import EntityLevelSecurity.Logger.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import EntityLevelSecurity.Logger.MyLogger;
 
 @Component
 public class RoleBuilder {
@@ -12,7 +11,7 @@ public class RoleBuilder {
     private ApplicationContext context;
 
     public Role createRole() {
-        MyLogger logger = MyLogger.getInstance();
+        Logger logger = Logger.getInstance();
         logger.log("Creating Role");
         return context.getBean(Role.class);
     }

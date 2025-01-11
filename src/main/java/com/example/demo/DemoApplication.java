@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import EntityLevelSecurity.Logger.Logger;
 import EntityLevelSecurity.Users.User;
 import EntityLevelSecurity.Users.UserBuilder;
 import jakarta.annotation.PostConstruct;
@@ -28,10 +29,11 @@ public class DemoApplication {
     @PostConstruct
     public void init() {
         Role rola = roleBuilder.createRole().withName("sekretarka").withPermission(Permission.READ, "paragony");
-        Role rola2 = roleBuilder.createRole().withName("HR Manager").withPermission(Permission.MODIFY, "genz boss and a mini");
+        Role rola2 = roleBuilder.createRole().withName("HR Manager").withPermission(Permission.MODIFY, "pracownicy");
 
         User barbara = userBuilder.createUser().withRole(rola).withName("barbara");
         User engineers_lay_offs = userBuilder.createUser().withRole(rola).withName("engineers_lay_offs");
+        Logger logger = Logger.getInstance();
 
 //        System.out.println(rola.getName());
 //        System.out.println(rola2.getName());

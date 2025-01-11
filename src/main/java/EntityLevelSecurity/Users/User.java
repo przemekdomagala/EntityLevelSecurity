@@ -1,7 +1,7 @@
 package EntityLevelSecurity.Users;
 import EntityLevelSecurity.Roles.Role;
 import org.springframework.context.annotation.Scope;
-import EntityLevelSecurity.Logger.MyLogger;
+import EntityLevelSecurity.Logger.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,19 +14,25 @@ public class User {
         return new User();
     }
 
-    /**Jak widac na zalaczonym obrazku, chuja jest krocej robiac wszystkiemu specjalne metody w loggerze**/
     public User withName(String name){
-        MyLogger logger = MyLogger.getInstance();
-        logger.nameAdding(name);
+        Logger logger = Logger.getInstance();
+        logger.log("User's name: " + name);
         this.name = name;
         return this;
     }
 
     public User withRole(Role role){
-        MyLogger logger = MyLogger.getInstance();
-        logger.roleAdding(role);
+        Logger logger = Logger.getInstance();
+        logger.log("User's role: " + role.getName());
         this.role = role;
         return this;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+    public Role getRole(){
+        return this.role;
     }
     //    public static class UserBuilder {}
 }
