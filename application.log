@@ -1,1 +1,235 @@
 [2025-01-11T07:51:07.039641300] Creating Role
+[2025-01-11T17:24:37.886227] Creating Role
+[2025-01-11T17:24:37.887254] Role's name: sekretarka
+[2025-01-11T17:24:37.887338] Role with READ permission on table users
+[2025-01-11T17:24:37.887364] Creating Role
+[2025-01-11T17:24:37.887426] Role's name: HR Manager
+[2025-01-11T17:24:37.887447] Role with MODIFY permission on table users
+[2025-01-11T17:24:37.887469] Creating user
+[2025-01-11T17:24:37.887736] User's role: sekretarka
+[2025-01-11T17:24:37.887772] User's name: barbara
+[2025-01-11T17:24:37.887795] Creating user
+[2025-01-11T17:24:37.887846] User's role: sekretarka
+[2025-01-11T17:24:37.887867] User's name: engineers_lay_offs
+[2025-01-11T17:24:37.887913] Creating Role
+[2025-01-11T17:24:37.887974] Role's name: Engineer
+[2025-01-11T17:24:37.888001] Role with MODIFY permission on table users
+[2025-01-11T17:24:37.888018] Creating user
+[2025-01-11T17:24:37.888065] User's role: Engineer
+[2025-01-11T17:24:37.888088] User's name: John
+[2025-01-11T17:26:07.487999] Creating Role
+[2025-01-11T17:26:07.489154] Role's name: sekretarka
+[2025-01-11T17:26:07.489247] Role with READ permission on table users
+[2025-01-11T17:26:07.489275] Creating Role
+[2025-01-11T17:26:07.489345] Role's name: HR Manager
+[2025-01-11T17:26:07.489370] Role with MODIFY permission on table users
+[2025-01-11T17:26:07.489389] Creating user
+[2025-01-11T17:26:07.489661] User's role: sekretarka
+[2025-01-11T17:26:07.489694] User's name: barbara
+[2025-01-11T17:26:07.489714] Creating user
+[2025-01-11T17:26:07.489768] User's role: sekretarka
+[2025-01-11T17:26:07.489788] User's name: engineers_lay_offs
+[2025-01-11T17:26:07.489833] Creating Role
+[2025-01-11T17:26:07.489884] Role's name: Engineer
+[2025-01-11T17:26:07.489904] Role with MODIFY permission on table users
+[2025-01-11T17:26:07.489922] Creating user
+[2025-01-11T17:26:07.489966] User's role: Engineer
+[2025-01-11T17:26:07.489989] User's name: John
+[2025-01-11T17:30:38.751654] Creating Role
+[2025-01-11T17:30:38.754777] Role's name: sekretarka
+[2025-01-11T17:30:38.754871] Role with READ permission on table users
+[2025-01-11T17:30:38.754897] Creating Role
+[2025-01-11T17:30:38.754955] Role's name: HR Manager
+[2025-01-11T17:30:38.754979] Role with MODIFY permission on table users
+[2025-01-11T17:30:38.754998] Creating user
+[2025-01-11T17:30:38.755266] User's role: sekretarka
+[2025-01-11T17:30:38.755301] User's name: barbara
+[2025-01-11T17:30:38.755321] Creating user
+[2025-01-11T17:30:38.755375] User's role: sekretarka
+[2025-01-11T17:30:38.755394] User's name: engineers_lay_offs
+[2025-01-11T17:30:38.755438] Creating Role
+[2025-01-11T17:30:38.755493] Role's name: Engineer
+[2025-01-11T17:30:38.755514] Role with MODIFY permission on table users
+[2025-01-11T17:30:38.755530] Creating user
+[2025-01-11T17:30:38.755577] User's role: Engineer
+[2025-01-11T17:30:38.755600] User's name: John
+[2025-01-11T17:30:46.333578] Creating Role
+[2025-01-11T17:30:46.334322] Role's name: sekretarka
+[2025-01-11T17:30:46.334409] Role with READ permission on table users
+[2025-01-11T17:30:46.334433] Creating Role
+[2025-01-11T17:30:46.334493] Role's name: HR Manager
+[2025-01-11T17:30:46.334514] Role with MODIFY permission on table users
+[2025-01-11T17:30:46.334533] Creating user
+[2025-01-11T17:30:46.334801] User's role: sekretarka
+[2025-01-11T17:30:46.334834] User's name: barbara
+[2025-01-11T17:30:46.334852] Creating user
+[2025-01-11T17:30:46.334903] User's role: sekretarka
+[2025-01-11T17:30:46.334928] User's name: engineers_lay_offs
+[2025-01-11T17:30:46.334974] Creating Role
+[2025-01-11T17:30:46.335028] Role's name: Engineer
+[2025-01-11T17:30:46.335050] Role with MODIFY permission on table users
+[2025-01-11T17:30:46.335066] Creating user
+[2025-01-11T17:30:46.335114] User's role: Engineer
+[2025-01-11T17:30:46.335136] User's name: John
+[2025-01-11T17:33:26.154554] Creating Role
+[2025-01-11T17:33:26.156016] Role's name: sekretarka
+[2025-01-11T17:33:26.156137] Role with READ permission on table users
+[2025-01-11T17:33:26.156169] Creating Role
+[2025-01-11T17:33:26.156245] Role's name: HR Manager
+[2025-01-11T17:33:26.156271] Role with MODIFY permission on table users
+[2025-01-11T17:33:26.156313] Creating user
+[2025-01-11T17:33:26.157119] User's role: sekretarka
+[2025-01-11T17:33:26.157209] User's name: barbara
+[2025-01-11T17:33:26.157238] Creating user
+[2025-01-11T17:33:26.157324] User's role: sekretarka
+[2025-01-11T17:33:26.157346] User's name: engineers_lay_offs
+[2025-01-11T17:33:26.157398] Creating Role
+[2025-01-11T17:33:26.157467] Role's name: Engineer
+[2025-01-11T17:33:26.157488] Role with MODIFY permission on table users
+[2025-01-11T17:33:26.157507] Creating user
+[2025-01-11T17:33:26.157555] User's role: Engineer
+[2025-01-11T17:33:26.157576] User's name: John
+[2025-01-11T17:36:27.050940] Creating Role
+[2025-01-11T17:36:27.051884] Role's name: sekretarka
+[2025-01-11T17:36:27.051966] Role with READ permission on table users
+[2025-01-11T17:36:27.051991] Creating Role
+[2025-01-11T17:36:27.052048] Role's name: HR Manager
+[2025-01-11T17:36:27.052072] Role with MODIFY permission on table users
+[2025-01-11T17:36:27.052091] Creating user
+[2025-01-11T17:36:27.052161] User's role: sekretarka
+[2025-01-11T17:36:27.052192] User's name: barbara
+[2025-01-11T17:36:27.052210] Creating user
+[2025-01-11T17:36:27.052256] User's role: sekretarka
+[2025-01-11T17:36:27.052279] User's name: engineers_lay_offs
+[2025-01-11T17:36:27.052324] Creating Role
+[2025-01-11T17:36:27.052373] Role's name: Engineer
+[2025-01-11T17:36:27.052392] Role with MODIFY permission on table users
+[2025-01-11T17:36:27.052409] Creating user
+[2025-01-11T17:36:27.052454] User's role: Engineer
+[2025-01-11T17:36:27.052476] User's name: John
+[2025-01-11T17:41:28.655426] Creating Role
+[2025-01-11T17:41:28.656803] Role's name: sekretarka
+[2025-01-11T17:41:28.656911] Role with READ permission on table users
+[2025-01-11T17:41:28.656937] Creating Role
+[2025-01-11T17:41:28.657004] Role's name: HR Manager
+[2025-01-11T17:41:28.657028] Role with MODIFY permission on table users
+[2025-01-11T17:41:28.657055] Creating user
+[2025-01-11T17:41:28.657376] User's role: sekretarka
+[2025-01-11T17:41:28.657419] User's name: barbara
+[2025-01-11T17:41:28.657442] Creating user
+[2025-01-11T17:41:28.657499] User's role: sekretarka
+[2025-01-11T17:41:28.657522] User's name: engineers_lay_offs
+[2025-01-11T17:41:28.657571] Creating Role
+[2025-01-11T17:41:28.657626] Role's name: Engineer
+[2025-01-11T17:41:28.657647] Role with MODIFY permission on table users
+[2025-01-11T17:41:28.657663] Creating user
+[2025-01-11T17:41:28.657710] User's role: Engineer
+[2025-01-11T17:41:28.657731] User's name: John
+[2025-01-11T17:41:37.634334] Creating Role
+[2025-01-11T17:41:37.635109] Role's name: sekretarka
+[2025-01-11T17:41:37.635193] Role with READ permission on table users
+[2025-01-11T17:41:37.635217] Creating Role
+[2025-01-11T17:41:37.635273] Role's name: HR Manager
+[2025-01-11T17:41:37.635293] Role with MODIFY permission on table users
+[2025-01-11T17:41:37.635311] Creating user
+[2025-01-11T17:41:37.635578] User's role: sekretarka
+[2025-01-11T17:41:37.635610] User's name: barbara
+[2025-01-11T17:41:37.635630] Creating user
+[2025-01-11T17:41:37.635684] User's role: sekretarka
+[2025-01-11T17:41:37.635703] User's name: engineers_lay_offs
+[2025-01-11T17:41:37.635751] Creating Role
+[2025-01-11T17:41:37.635806] Role's name: Engineer
+[2025-01-11T17:41:37.635827] Role with MODIFY permission on table users
+[2025-01-11T17:41:37.635844] Creating user
+[2025-01-11T17:41:37.635892] User's role: Engineer
+[2025-01-11T17:41:37.635915] User's name: John
+[2025-01-11T17:42:16.863330] Creating Role
+[2025-01-11T17:42:16.864315] Role's name: sekretarka
+[2025-01-11T17:42:16.864405] Role with READ permission on table users
+[2025-01-11T17:42:16.864430] Creating Role
+[2025-01-11T17:42:16.864490] Role's name: HR Manager
+[2025-01-11T17:42:16.864510] Role with MODIFY permission on table users
+[2025-01-11T17:42:16.864533] Creating user
+[2025-01-11T17:42:16.864812] User's role: sekretarka
+[2025-01-11T17:42:16.864847] User's name: barbara
+[2025-01-11T17:42:16.864866] Creating user
+[2025-01-11T17:42:16.864921] User's role: sekretarka
+[2025-01-11T17:42:16.864942] User's name: engineers_lay_offs
+[2025-01-11T17:42:16.864994] Creating Role
+[2025-01-11T17:42:16.865049] Role's name: Engineer
+[2025-01-11T17:42:16.865070] Role with MODIFY permission on table users
+[2025-01-11T17:42:16.865084] Creating user
+[2025-01-11T17:42:16.865131] User's role: Engineer
+[2025-01-11T17:42:16.865152] User's name: John
+[2025-01-11T17:44:28.007420] Creating Role
+[2025-01-11T17:44:28.008778] Role's name: sekretarka
+[2025-01-11T17:44:28.008871] Role with READ permission on table users
+[2025-01-11T17:44:28.008896] Creating Role
+[2025-01-11T17:44:28.008961] Role's name: HR Manager
+[2025-01-11T17:44:28.008980] Role with MODIFY permission on table users
+[2025-01-11T17:44:28.009004] Creating user
+[2025-01-11T17:44:28.009279] User's role: sekretarka
+[2025-01-11T17:44:28.009312] User's name: barbara
+[2025-01-11T17:44:28.009332] Creating user
+[2025-01-11T17:44:28.009390] User's role: sekretarka
+[2025-01-11T17:44:28.009410] User's name: engineers_lay_offs
+[2025-01-11T17:44:28.009454] Creating Role
+[2025-01-11T17:44:28.009515] Role's name: Engineer
+[2025-01-11T17:44:28.009538] Role with MODIFY permission on table users
+[2025-01-11T17:44:28.009554] Creating user
+[2025-01-11T17:44:28.009601] User's role: Engineer
+[2025-01-11T17:44:28.009622] User's name: John
+[2025-01-11T18:07:24.191997] Creating Role
+[2025-01-11T18:07:24.193102] Role's name: sekretarka
+[2025-01-11T18:07:24.193203] Role with READ permission on table users
+[2025-01-11T18:07:24.193229] Creating Role
+[2025-01-11T18:07:24.193294] Role's name: HR Manager
+[2025-01-11T18:07:24.193318] Role with MODIFY permission on table users
+[2025-01-11T18:07:24.193337] Creating user
+[2025-01-11T18:07:24.193609] User's role: sekretarka
+[2025-01-11T18:07:24.193641] User's name: barbara
+[2025-01-11T18:07:24.193661] Creating user
+[2025-01-11T18:07:24.193713] User's role: sekretarka
+[2025-01-11T18:07:24.193731] User's name: engineers_lay_offs
+[2025-01-11T18:07:24.193776] Creating Role
+[2025-01-11T18:07:24.193827] Role's name: Engineer
+[2025-01-11T18:07:24.193849] Role with MODIFY permission on table users
+[2025-01-11T18:07:24.193868] Creating user
+[2025-01-11T18:07:24.193914] User's role: Engineer
+[2025-01-11T18:07:24.193935] User's name: John
+[2025-01-11T18:16:08.666443] Creating Role
+[2025-01-11T18:16:08.669391] Role's name: sekretarka
+[2025-01-11T18:16:08.669584] Role with READ permission on table users
+[2025-01-11T18:16:08.669613] Creating Role
+[2025-01-11T18:16:08.669715] Role's name: HR Manager
+[2025-01-11T18:16:08.669743] Role with MODIFY permission on table users
+[2025-01-11T18:16:08.669766] Creating user
+[2025-01-11T18:16:08.670228] User's role: sekretarka
+[2025-01-11T18:16:08.670267] User's name: barbara
+[2025-01-11T18:16:08.670290] Creating user
+[2025-01-11T18:16:08.670352] User's role: sekretarka
+[2025-01-11T18:16:08.670374] User's name: engineers_lay_offs
+[2025-01-11T18:16:08.670425] Creating Role
+[2025-01-11T18:16:08.670483] Role's name: Engineer
+[2025-01-11T18:16:08.670506] Role with MODIFY permission on table users
+[2025-01-11T18:16:08.670526] Creating user
+[2025-01-11T18:16:08.670575] User's role: Engineer
+[2025-01-11T18:16:08.670598] User's name: John
+[2025-01-11T18:16:44.303710] Creating Role
+[2025-01-11T18:16:44.305268] Role's name: sekretarka
+[2025-01-11T18:16:44.305402] Role with READ permission on table users
+[2025-01-11T18:16:44.305430] Creating Role
+[2025-01-11T18:16:44.305508] Role's name: HR Manager
+[2025-01-11T18:16:44.305534] Role with MODIFY permission on table users
+[2025-01-11T18:16:44.305557] Creating user
+[2025-01-11T18:16:44.305913] User's role: sekretarka
+[2025-01-11T18:16:44.305951] User's name: barbara
+[2025-01-11T18:16:44.305972] Creating user
+[2025-01-11T18:16:44.306028] User's role: sekretarka
+[2025-01-11T18:16:44.306051] User's name: engineers_lay_offs
+[2025-01-11T18:16:44.306107] Creating Role
+[2025-01-11T18:16:44.306161] Role's name: Engineer
+[2025-01-11T18:16:44.306182] Role with MODIFY permission on table users
+[2025-01-11T18:16:44.306201] Creating user
+[2025-01-11T18:16:44.306249] User's role: Engineer
+[2025-01-11T18:16:44.306273] User's name: John

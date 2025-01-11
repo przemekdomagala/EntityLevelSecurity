@@ -33,7 +33,7 @@ public class DemoApplication {
 
     @PostConstruct
     public void connectToDatabase() {
-        database.connect("jdbc:postgresql://localhost:5432/test_hib");
+        database.connect("jdbc:postgresql://localhost:5432/sampledb");
 
         database.getTableNames().forEach(System.out::println);
 
@@ -50,8 +50,8 @@ public class DemoApplication {
 
     @PostConstruct
     public void init() {
-        Role rola = roleBuilder.createRole().withName("sekretarka").withPermission(Permission.READ, "minions");
-        Role rola2 = roleBuilder.createRole().withName("HR Manager").withPermission(Permission.MODIFY, "polacy");
+        Role rola = roleBuilder.createRole().withName("sekretarka").withPermission(Permission.READ, "users");
+        Role rola2 = roleBuilder.createRole().withName("HR Manager").withPermission(Permission.MODIFY, "users");
 
 
         User barbara = userBuilder.createUser().withRole(rola).withName("barbara");
@@ -66,40 +66,40 @@ public class DemoApplication {
         System.out.println(engineers_lay_offs.equals(barbara));
 
 
-        Role engineerRole = roleBuilder.createRole().withName("Engineer").withPermission(Permission.MODIFY, "manhattan.minions");
+        Role engineerRole = roleBuilder.createRole().withName("Engineer").withPermission(Permission.MODIFY, "users");
         User engineer = userBuilder.createUser().withRole(engineerRole).withName("John");
 
-        proxyDatabase = new ProxyDatabase(database, engineer);
+        proxyDatabase = new ProxyDatabase(database,engineer);
 
-        proxyDatabase.connect("jdbc:postgresql://localhost:5432/test_hib");
+        proxyDatabase.connect("jdbc:postgresql://localhost:5432/sampledb");
 
         System.out.println("Testing select operation...");
-        Map<String, Object> whereConditions = Map.of("name", "Bob");
-        List<Map<String, Object>> results = proxyDatabase.select("manhattan.minions", whereConditions);
+        Map<String, Object> whereConditions = Map.of("name", "John Doe");
+        List<Map<String, Object>> results = proxyDatabase.select("users", whereConditions);
 
         System.out.println("Query results: " + results);
 
-        proxyDatabase.insert("manhattan.minions", Map.of("name", "KAJEK", "job", "best"));
+//        proxyDatabase.insert("users", Map.of("name", "KAJEK", "email", "fdsafd"));
 
-        System.out.println("Res" + proxyDatabase.select("manhattan.minions", Map.of("name", "KAJEK")));
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
 
-        proxyDatabase.update("manhattan.minions", Map.of("name", "Kajek", "job", "even_better"), Map.of("name", "KAJEK"));
+        proxyDatabase.update("users", Map.of("name", "Kajek"), Map.of("name", "KAJEK"));
 
-        System.out.println("Res" + proxyDatabase.select("manhattan.minions", Map.of("name", "KAJEK")));
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
 
 
-        proxyDatabase.delete("manhattan.minions", Map.of("name", "KAJEK"));
+//        proxyDatabase.delete("users", Map.of("name", "KAJEK"));
 
-        System.out.println("Res" + proxyDatabase.select("manhattan.minions", Map.of("name", "KAJEK")));
+        System.out.println("Res" + proxyDatabase.select("users", Map.of("name", "KAJEK")));
 
 
         commandInvoker = new CommandInvoker();
 
-        SelectCommand selectBob = new SelectCommand(proxyDatabase,"manhattan.minions", Map.of("name", "Bob"));
-        InsertCommand insertWegiel = new InsertCommand(proxyDatabase,"manhattan.minions", Map.of("name", "Wegiel", "job", "pasterz traszek"));
-        SelectCommand selectWegiel = new SelectCommand(proxyDatabase,"manhattan.minions", Map.of("name", "Wegiel"));
-        UpdateCommand updateWegiel = new UpdateCommand(proxyDatabase,"manhattan.minions", Map.of("name", "Wegiel", "job", "pan i wladca imperator jowisza"), Map.of("name", "Wegiel"));
-        DeleteCommand deleteWegiel = new DeleteCommand(proxyDatabase,"manhattan.minions", Map.of("name", "Wegiel"));
+        SelectCommand selectBob = new SelectCommand(proxyDatabase,"users", Map.of("name", "John Doe"));
+        InsertCommand insertWegiel = new InsertCommand(proxyDatabase,"users", Map.of("name", "Wegiel", "email", "pasterz traszek"));
+        SelectCommand selectWegiel = new SelectCommand(proxyDatabase,"users", Map.of("name", "Wegiel"));
+        UpdateCommand updateWegiel = new UpdateCommand(proxyDatabase,"users", Map.of("name", "Wegiel", "email", "pan i wladca imperator jowisza"), Map.of("name", "Wegiel"));
+        DeleteCommand deleteWegiel = new DeleteCommand(proxyDatabase,"users", Map.of("name", "Wegiel"));
 
 
         commandInvoker.addCommand(selectBob);
